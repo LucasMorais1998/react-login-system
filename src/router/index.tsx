@@ -1,16 +1,21 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home } from "../pages/Home";
+
+import { Login } from "../pages/Login";
+import { Private } from "../pages/Private";
+import { Register } from "../pages/Register";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={} />
-        <Route path="/login" element={} />
-        <Route path="/register" element={} />
-        <Route path="/private" element={} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/private" element={<Private />} />
       </Routes>
     </BrowserRouter>
   );
-} 
+};
 
-export {Router};
+export { Router };
