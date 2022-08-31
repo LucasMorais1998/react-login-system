@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: var(--blue-500);
+    background-color: var(--white-100);
     -webkit-font-smoothing: antialiaased;
   }
   
@@ -42,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
+    color: var(--gray-300);
   } 
 
   button {
