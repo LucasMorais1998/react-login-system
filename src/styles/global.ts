@@ -4,9 +4,10 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --white-100: #FCFCFC; // bg
     --white-200: #F1F1F2; // bg-input
+    --white-300: #EEEEEE;
 
-    --gray-100: #3D4046; // text
-    --gray-200: #93969D;
+    --gray-100: #93969D;
+    --gray-200: #3D4046; // text
     --gray-300: #12161E; // title
     
     --blue-100: rgb(92, 137, 222); // button
