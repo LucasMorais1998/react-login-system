@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Header } from "../../components/Header";
 
-import { Container } from "./styles";
+import { Container, CustomIput } from "./styles";
 
 type InputsTypes = {
   email: string;
@@ -24,11 +24,12 @@ const Login = () => {
   return (
     <>
       <Header />
-      <Container hasError={Boolean(errors.email) || Boolean(errors.password)}>
+      <Container>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Sign in</h1>
           <label htmlFor="email">
-            <input
+            <CustomIput
+              hasError={Boolean(errors.email)}
               id="email"
               type="email"
               placeholder="Email address"
@@ -37,7 +38,8 @@ const Login = () => {
           </label>
 
           <label htmlFor="password">
-            <input
+            <CustomIput
+              hasError={Boolean(errors.password)}
               id="password"
               type="password"
               placeholder="Password"
