@@ -26,6 +26,7 @@ export const Container = styled.div`
       font-size: 0.9rem;
       font-weight: 500;
       border: none;
+      border-radius: 0.3rem;
       cursor: pointer;
       transition: background-color ease 0.2s;
 
