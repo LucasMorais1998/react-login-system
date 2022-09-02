@@ -1,19 +1,16 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 
+import type { InputsTypes } from "../../types/Input";
+
 import { Header } from "../../components/Header";
 
-import { Container, CustomIput } from "./styles";
-
-type InputsTypes = {
-  email: string;
-  password: string;
-};
+import { Container } from "./styles";
+import { CustomIput } from "../../styles/customInput";
 
 const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<InputsTypes>();
 
