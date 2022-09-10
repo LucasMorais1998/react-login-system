@@ -18,6 +18,9 @@ export const Container = styled.div`
     position: relative;
 
     img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
       margin-top: 2rem;
       border-radius: 50%;
     }
