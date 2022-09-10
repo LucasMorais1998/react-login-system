@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import { AuthContext } from "../../contexts/Auth/AuthContext";
+
 import { BsCameraFill } from "react-icons/bs";
 
 import { Header } from "../../components/Header";
@@ -9,6 +12,8 @@ import { Container } from "./styles";
 const Private = () => {
   const [isUploadProfileImageModalOpen, setIsUploadProfileImageModalOpen] =
     useState(false);
+
+  const { user } = useContext(AuthContext);
 
   const handleOpenUploadProfileImageModal = () => {
     setIsUploadProfileImageModalOpen(true);
@@ -24,7 +29,10 @@ const Private = () => {
       <Container>
         <h1>Private Page</h1>
         <div className="profile-image">
-          <img src="https://placehold.jp/150x150.png" alt="profile image" />
+          <img
+            src={user?.profileImage || "https://placehold.jp/150x150.png"}
+            alt="profile image"
+          />
           <div
             className="change-profile-image"
             onClick={handleOpenUploadProfileImageModal}
@@ -32,16 +40,18 @@ const Private = () => {
             <BsCameraFill className="change-profile-image-icon" />
           </div>
         </div>
+
         <p>
-          Name: <span>firstName + lastName</span>
+          Name: <span>{`${user?.firstName} ${user?.lastName}`}</span>
         </p>
         <p>
-          Company: <span>company</span>
+          Company: <span>{user?.company}</span>
         </p>
         <p>
-          Email: <span>email</span>
+          Email: <span>{user?.email}</span>
         </p>
       </Container>
+
       <UploadProfileImageModal
         isOpen={isUploadProfileImageModalOpen}
         onRequestClose={handleCloseUploadProfileImageModal}
