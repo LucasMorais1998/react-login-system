@@ -15,7 +15,6 @@ import { Container, CustomLabel, ModalOptions } from "./styles";
 
 interface IUploadProfileImageModalProps {
   isOpen: boolean;
-
   onRequestClose: () => void;
 }
 
@@ -31,14 +30,18 @@ const UploadProfileImageModal = ({
   const { profileImage, setProfileImage } = useContext(ProfileImageContext);
 
   useEffect(() => {
-    (async () => {
-      const dataBaseImage = await getPhoto();
+    changeProfileImage();
+  }, [user?.profileImage]);
 
-      if (dataBaseImage.url !== "") {
-        setProfileImage(dataBaseImage.url);
-      }
-    })();
-  }, [profileImage]);
+  const changeProfileImage = async () => {
+    const dataBaseImage = await getPhoto();
+
+    if (dataBaseImage.url === "") {
+      setProfileImage("https://placehold.jp/150x150.png");
+    } else {
+      setProfileImage(dataBaseImage.url);
+    }
+  };
 
   const handleImageSubit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,11 +58,9 @@ const UploadProfileImageModal = ({
 
       setIsUploading(false);
 
-      if (user?.profileImage === undefined) {
-        user!.profileImage = url;
+      user!.profileImage = url;
 
-        setProfileImage(user!.profileImage);
-      }
+      setProfileImage(user!.profileImage);
 
       onRequestClose();
     }
