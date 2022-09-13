@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { ProfileImageContext } from "../../contexts/ProfileImage/ProfileImageContext";
-
-import { getPhoto } from "../../services/Photo/photo";
 
 import { BsCameraFill } from "react-icons/bs";
 
@@ -17,17 +15,7 @@ const Private = () => {
     useState(false);
 
   const { user } = useContext(AuthContext);
-  const { profileImage, setProfileImage } = useContext(ProfileImageContext);
-
-  useEffect(() => {
-    (async () => {
-      const dataBaseImage = await getPhoto();
-
-      if (dataBaseImage.url !== "") {
-        setProfileImage(dataBaseImage.url);
-      }
-    })();
-  }, [profileImage]);
+  const { profileImage } = useContext(ProfileImageContext);
 
   const handleOpenUploadProfileImageModal = () => {
     setIsUploadProfileImageModalOpen(true);
