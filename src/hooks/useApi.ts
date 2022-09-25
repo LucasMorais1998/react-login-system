@@ -10,7 +10,6 @@ type validateTokenTypes = {
 
 export const useApi = () => ({
   validateToken: async (token: string): Promise<validateTokenTypes> => {
-    // mock
     return {
       token,
       user: {
@@ -33,7 +32,6 @@ export const useApi = () => ({
     email,
     password,
   }: InputsTypes): Promise<validateTokenTypes> => {
-    // mock
     return {
       user: {
         id: 1,
@@ -65,7 +63,6 @@ export const useApi = () => ({
   },
 
   logout: async (): Promise<Boolean> => {
-    // mock
     return false;
 
     const response = await api.post("/logout");
