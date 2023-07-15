@@ -1,7 +1,7 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-import { InputsTypes } from "../../types/Input";
-import { User } from "../../types/User";
+import { InputsTypes } from '../../types/Input';
+import { User } from '../../types/User';
 
 export type AuthContextType = {
   user: User | null;

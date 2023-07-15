@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
-import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { AuthContext } from '../../contexts/Auth/AuthContext';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 
 const Header = () => {
   const { user, signout } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Header = () => {
   const handleLogout = async () => {
     await signout();
 
-    navigate("/");
+    navigate('/');
   };
 
   return (

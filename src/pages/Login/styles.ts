@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   h1 {
@@ -17,7 +17,7 @@ export const Container = styled.div`
     margin-top: 5rem;
     padding: 2rem;
 
-    input[type="submit"] {
+    input[type='submit'] {
       margin-top: 1rem;
       background-color: var(--blue-100);
       color: var(--white-100);
@@ -68,5 +68,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-

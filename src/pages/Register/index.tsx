@@ -1,11 +1,11 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-import type { InputsTypes } from "../../types/Input";
+import type { InputsTypes } from '../../types/Input';
 
-import { Header } from "../../components/Header";
+import { Header } from '../../components/Header';
 
-import { CustomIput } from "../../styles/customInput";
-import { Container } from "./styles";
+import { CustomIput } from '../../styles/customInput';
+import { Container } from './styles';
 
 interface RegisterInputs extends InputsTypes {
   firstName: string;
@@ -21,7 +21,7 @@ const Register = () => {
   } = useForm<RegisterInputs>();
 
   const onSubmit: SubmitHandler<RegisterInputs> = () => {
-    console.log("data");
+    console.log('data');
   };
 
   return (
@@ -36,7 +36,7 @@ const Register = () => {
               id="firstName"
               type="text"
               placeholder="First name"
-              {...register("firstName", { required: true })}
+              {...register('firstName', { required: true })}
             />
           </label>
 
@@ -46,7 +46,7 @@ const Register = () => {
               id="lastName"
               type="text"
               placeholder="Last name"
-              {...register("lastName", { required: true })}
+              {...register('lastName', { required: true })}
             />
           </label>
 
@@ -55,7 +55,7 @@ const Register = () => {
               id="company"
               type="text"
               placeholder="Company"
-              {...register("company", { required: false })}
+              {...register('company', { required: false })}
             />
           </label>
 
@@ -65,7 +65,7 @@ const Register = () => {
               id="email"
               type="email"
               placeholder="Email address"
-              {...register("email", { required: true })}
+              {...register('email', { required: true })}
             />
           </label>
 
@@ -75,7 +75,7 @@ const Register = () => {
               id="password"
               type="password"
               placeholder="Password"
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
             />
           </label>
           <input type="submit" value="Sign up" />

@@ -1,18 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useState } from 'react';
 
-import { AuthContext } from "../../contexts/Auth/AuthContext";
-import { ProfileImageContext } from "../../contexts/ProfileImage/ProfileImageContext";
+import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { ProfileImageContext } from '../../contexts/ProfileImage/ProfileImageContext';
 
-import { BsCameraFill } from "react-icons/bs";
+import { BsCameraFill } from 'react-icons/bs';
 
-import { Header } from "../../components/Header";
-import { UploadProfileImageModal } from "../../components/UploadProfileImageModal";
+import { Header } from '../../components/Header';
+import { UploadProfileImageModal } from '../../components/UploadProfileImageModal';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 
 const Private = () => {
-  const [isUploadProfileImageModalOpen, setIsUploadProfileImageModalOpen] =
-    useState(false);
+  const [isUploadProfileImageModalOpen, setIsUploadProfileImageModalOpen] = useState(false);
 
   const { user } = useContext(AuthContext);
   const { profileImage } = useContext(ProfileImageContext);
@@ -32,10 +31,7 @@ const Private = () => {
         <h1>Private Page</h1>
         <div className="profile-image">
           <img src={profileImage} alt="profile image" />
-          <div
-            className="change-profile-image"
-            onClick={handleOpenUploadProfileImageModal}
-          >
+          <div className="change-profile-image" onClick={handleOpenUploadProfileImageModal}>
             <BsCameraFill className="change-profile-image-icon" />
           </div>
         </div>

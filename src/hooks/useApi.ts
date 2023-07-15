@@ -1,7 +1,7 @@
-import { api } from "../services/Api/api";
-import { User } from "../types/User";
+import { api } from '../services/Api/api';
+import { User } from '../types/User';
 
-import { InputsTypes } from "./../types/Input";
+import { InputsTypes } from './../types/Input';
 
 type validateTokenTypes = {
   token: string;
@@ -14,36 +14,33 @@ export const useApi = () => ({
       token,
       user: {
         id: 1,
-        email: "john.doe@email.com",
-        firstName: "John",
-        lastName: "Doe",
-        company: "Lorem Ipsum",
+        email: 'john.doe@email.com',
+        firstName: 'John',
+        lastName: 'Doe',
+        company: 'Lorem Ipsum',
       },
     };
 
-    const response = await api.post("/validate", {
+    const response = await api.post('/validate', {
       token,
     });
 
     return response.data;
   },
 
-  signin: async ({
-    email,
-    password,
-  }: InputsTypes): Promise<validateTokenTypes> => {
+  signin: async ({ email, password }: InputsTypes): Promise<validateTokenTypes> => {
     return {
       user: {
         id: 1,
-        email: "john.doe@email.com",
-        firstName: "John",
-        lastName: "Doe",
-        company: "Lorem Ipsum",
+        email: 'john.doe@email.com',
+        firstName: 'John',
+        lastName: 'Doe',
+        company: 'Lorem Ipsum',
       },
-      token: "12345678",
+      token: '12345678',
     };
 
-    const response = await api.post("/signin", {
+    const response = await api.post('/signin', {
       email,
       password,
     });
@@ -58,14 +55,14 @@ export const useApi = () => ({
         lastName: user.lastName,
         company: user.company,
       },
-      token: "token",
+      token: 'token',
     };
   },
 
   logout: async (): Promise<Boolean> => {
     return false;
 
-    const response = await api.post("/logout");
+    const response = await api.post('/logout');
 
     return response.data;
   },

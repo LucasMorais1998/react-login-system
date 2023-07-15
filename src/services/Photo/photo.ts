@@ -1,21 +1,15 @@
-import {
-  deleteObject,
-  getDownloadURL,
-  list,
-  ref,
-  uploadBytes,
-} from "firebase/storage";
+import { deleteObject, getDownloadURL, list, ref, uploadBytes } from 'firebase/storage';
 
-import { v4 as createId } from "uuid";
+import { v4 as createId } from 'uuid';
 
-import { storage } from "../../libs/firebase";
+import { storage } from '../../libs/firebase';
 
-import { Photo } from "../../types/Photo";
+import { Photo } from '../../types/Photo';
 
 export const getPhoto = async () => {
-  let photo: Photo = { name: "", url: "" };
+  let photo: Photo = { name: '', url: '' };
 
-  const imagesFolder = ref(storage, "profile-image");
+  const imagesFolder = ref(storage, 'profile-image');
 
   const image = await list(imagesFolder);
 
@@ -28,17 +22,17 @@ export const getPhoto = async () => {
 };
 
 export const insertPhoto = async (file: File) => {
-  const allowedFormats = ["image/jpeg", "image/jpg", "image/png"];
+  const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png'];
 
   const photo = await getPhoto();
 
-  if (photo.url !== "") {
+  if (photo.url !== '') {
     deletePhoto(photo.name);
   }
 
   const profileImage: Photo = {
-    name: "",
-    url: "",
+    name: '',
+    url: '',
   };
 
   if (allowedFormats.includes(file.type)) {

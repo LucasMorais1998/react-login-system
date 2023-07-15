@@ -1,17 +1,17 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from 'react';
 
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import loadingImg from "../../assets/images/loading.jpg";
+import loadingImg from '../../assets/images/loading.jpg';
 
-import { FaPen, FaTrashAlt, FaWindowClose } from "react-icons/fa";
+import { FaPen, FaTrashAlt, FaWindowClose } from 'react-icons/fa';
 
-import { AuthContext } from "../../contexts/Auth/AuthContext";
-import { ProfileImageContext } from "../../contexts/ProfileImage/ProfileImageContext";
+import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { ProfileImageContext } from '../../contexts/ProfileImage/ProfileImageContext';
 
-import { getPhoto, insertPhoto } from "../../services/Photo/photo";
+import { getPhoto, insertPhoto } from '../../services/Photo/photo';
 
-import { Container, CustomLabel, ModalOptions } from "./styles";
+import { Container, CustomLabel, ModalOptions } from './styles';
 
 interface IUploadProfileImageModalProps {
   isOpen: boolean;
@@ -36,8 +36,8 @@ const UploadProfileImageModal = ({
   const changeProfileImage = async () => {
     const dataBaseImage = await getPhoto();
 
-    if (dataBaseImage.url === "") {
-      setProfileImage("https://placehold.jp/150x150.png");
+    if (dataBaseImage.url === '') {
+      setProfileImage('https://placehold.jp/150x150.png');
     } else {
       setProfileImage(dataBaseImage.url);
     }
@@ -49,7 +49,7 @@ const UploadProfileImageModal = ({
     setHasImage(true);
 
     const formDate = new FormData(e.currentTarget);
-    const file = formDate.get("image") as File;
+    const file = formDate.get('image') as File;
 
     if (file) {
       setIsUploading(true);
@@ -78,27 +78,17 @@ const UploadProfileImageModal = ({
       <Container isUploading={isUploading}>
         <img src={isUploading ? loadingImg : profileImage} alt="" />
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-          quae.
-        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quae.</p>
 
         <ModalOptions onSubmit={handleImageSubit}>
           <CustomLabel htmlFor="input-image">
             <FaPen className="change-image-icon" />
-            <input
-              type="file"
-              id="input-image"
-              name="image"
-              onInput={() => setHasImage(true)}
-            />
+            <input type="file" id="input-image" name="image" onInput={() => setHasImage(true)} />
           </CustomLabel>
 
           <FaTrashAlt className="delete-image-icon" />
 
-          {hasImage && (
-            <input className="submit-image-icon" type="submit" value="Enviar" />
-          )}
+          {hasImage && <input className="submit-image-icon" type="submit" value="Enviar" />}
         </ModalOptions>
       </Container>
     </Modal>

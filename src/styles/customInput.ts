@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IInputProps {
   hasError?: boolean;
@@ -8,8 +8,7 @@ export const CustomIput = styled.input<IInputProps>`
   width: 100%;
   height: 2.6rem;
   padding: 0.7rem;
-  background-color: ${(props) =>
-    props.hasError ? "rgba(255, 99, 71, 0.2)" : "var(--white-200)"};
+  background-color: ${props => (props.hasError ? 'rgba(255, 99, 71, 0.2)' : 'var(--white-200)')};
   border-radius: 0.3rem;
   font-size: 1rem;
   font-weight: 500;
@@ -19,8 +18,7 @@ export const CustomIput = styled.input<IInputProps>`
 
   :focus {
     outline: 0.3px solid var(--blue-200);
-    outline: ${(props) =>
-      props.hasError ? "0.3px solid red" : "0.3px solid var(--blue-200)"};
+    outline: ${props => (props.hasError ? '0.3px solid red' : '0.3px solid var(--blue-200)')};
     border: none;
 
     &:hover {

@@ -1,16 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from 'react';
 
-import { AuthContext } from "../../contexts/Auth/AuthContext";
-import { ProfileImageContext } from "../../contexts/ProfileImage/ProfileImageContext";
+import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { ProfileImageContext } from '../../contexts/ProfileImage/ProfileImageContext';
 
-export const ProfileImageProvider = ({
-  children,
-}: {
-  children: JSX.Element;
-}) => {
-  const [profileImage, setProfileImage] = useState<string>(
-    "https://placehold.jp/150x150.png"
-  );
+export const ProfileImageProvider = ({ children }: { children: JSX.Element }) => {
+  const [profileImage, setProfileImage] = useState<string>('https://placehold.jp/150x150.png');
   const { user } = useContext(AuthContext);
 
   useEffect(() => {

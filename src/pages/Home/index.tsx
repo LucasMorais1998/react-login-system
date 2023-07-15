@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import Modal from "react-modal";
+import Modal from 'react-modal';
 
-import { Header } from "../../components/Header";
+import { Header } from '../../components/Header';
 
-import { Container } from "./styles";
+import { Container } from './styles';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const Home = () => {
   return (

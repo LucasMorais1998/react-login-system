@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IContainerProps {
   isUploading: boolean;
@@ -11,8 +11,7 @@ export const Container = styled.div<IContainerProps>`
     object-fit: cover;
     margin-top: 2rem;
     border-radius: 50%;
-    animation: ${(props) =>
-      props.isUploading ? "rotation 4s infinite linear;" : ""};
+    animation: ${props => (props.isUploading ? 'rotation 4s infinite linear;' : '')};
   }
 
   @keyframes rotation {
@@ -83,7 +82,7 @@ export const CustomLabel = styled.label`
     }
   }
 
-  input[type="file"] {
+  input[type='file'] {
     display: none;
 
     &::file-selector-button {
